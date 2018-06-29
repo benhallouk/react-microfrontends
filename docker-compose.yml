@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  header.microfrontends.local:
+    build: "./header"
+    ports:
+      - "8000:8080"
+    volumes:
+      - .:/header
+  footer.microfrontends.local:
+    build: "./footer"
+    ports:
+      - "8001:8080"
+    volumes:
+      - .:/footer
+  layout.microfrontends.local:
+      build: "./layout"
+      ports:
+        - "8003:8080"
+      volumes:
+        - .:/layout
+      depends_on:
+        - header.microfrontends.local
+        - footer.microfrontends.local
