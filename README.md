@@ -192,3 +192,9 @@ services:
         - header.microfrontends.local
         - footer.microfrontends.local
 ```
+
+To build all the containers and compose them just perform 
+
+```
+docker-compose up --build
+```
